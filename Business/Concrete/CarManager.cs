@@ -18,11 +18,41 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
+
+        public void Add(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
         {
             //Business codes
             return _carDal.GetAll();
         }
 
+        public void GetCarsByBrandId()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetCarsByBrandId(int id)
+        {
+            return _carDal.GetAll(c => c.BrandId == id);
+        }
+
+        public List<Car> GetCarsByColorId(int id)
+        {
+            return _carDal.GetAll(c => c.ColorId == id);
+        }
+
+        public void Update(Car car)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
