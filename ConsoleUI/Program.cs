@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.Entityframework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -15,14 +16,19 @@ namespace ConsoleUI
 
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 
-            
-            foreach (var c in carManager.GetAll())
+            Console.WriteLine("-----------------------");
+            foreach (var car in carManager.GetAll())
             {
-               Console.WriteLine($"{c.CarName} markalı arabanın günlük fiyatı {c.DailyPrice}tl'dir.");
+                Console.WriteLine( $"Elimizde bulunan marka : {car.CarName} {car.Description}" );
             }
             Console.WriteLine("-----------------------");
 
-            
+            foreach (var c in carManager.GetAll())
+            {
+               Console.WriteLine($"{c.CarName} {c.Description} markalı arabanın günlük fiyatı {c.DailyPrice} tl'dir.");
+            }
+            Console.WriteLine("-----------------------");
+
             foreach (var s in colorManager.GetAll())
             {
                 Console.WriteLine($"{s.ColorName}");
@@ -35,6 +41,7 @@ namespace ConsoleUI
                 Console.WriteLine($"Kiralanabilir arabalar ;" +
                     $" {b.BrandName}.");
             }
+
 
 
         }

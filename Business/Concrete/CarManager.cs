@@ -14,6 +14,11 @@ namespace Business.Concrete
     {
         ICarDal _carDal;
 
+        public CarManager(ICarDal carDal)
+        {
+            _carDal = carDal;
+        }
+
         public void Add(Car car)
         {
             _carDal.Add(car);

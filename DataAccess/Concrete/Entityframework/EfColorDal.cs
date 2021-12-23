@@ -51,6 +51,16 @@ namespace DataAccess.Concrete.Entityframework
             }
         }
 
+        public Color GetCarsByBrandId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Color GetCarsByColorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Color entity)
         {
             using (ReCapCarContext context = new ReCapCarContext())
