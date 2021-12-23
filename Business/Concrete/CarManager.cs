@@ -14,45 +14,34 @@ namespace Business.Concrete
     {
         ICarDal _carDal;
 
-        public CarManager(ICarDal carDal)
-        {
-            _carDal = carDal;
-        }
-
         public void Add(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Add(car);
         }
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
         {
-            //Business codes
             return _carDal.GetAll();
         }
 
-        public void GetCarsByBrandId()
+        public Car GetCarsByBrandId(int id)
+        {
+            return _carDal.GetCarsByBrandId(id);
+        }
+
+        public Car GetCarsByColorId(int id)
         {
             throw new NotImplementedException();
-        }
-
-        public List<Car> GetCarsByBrandId(int id)
-        {
-            return _carDal.GetAll(c => c.BrandId == id);
-        }
-
-        public List<Car> GetCarsByColorId(int id)
-        {
-            return _carDal.GetAll(c => c.ColorId == id);
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);
         }
     }
 }

@@ -14,7 +14,9 @@ namespace DataAccess.Abstract
 
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
         T Get(Expression<Func<T, bool>> filter);
+        T GetCarsByBrandId(int id);
 
+        T GetCarsByColorId(int id);
 
         void Add(T entity);
         void Update(T entity);
