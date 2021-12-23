@@ -31,14 +31,14 @@ namespace ConsoleUI
 
             foreach (var s in colorManager.GetAll())
             {
-                Console.WriteLine($"{s.ColorName}");
+                Console.WriteLine($"avaliable colors are: {s.ColorName}");
             }
 
             Console.WriteLine("-----------------------");
 
             foreach (var b in brandManager.GetAll())
             {
-                Console.WriteLine($"Kiralanabilir arabalar ;" +
+                Console.WriteLine($"Kiralanabilir arabalar :" +
                     $" {b.BrandName}.");
             }
 
