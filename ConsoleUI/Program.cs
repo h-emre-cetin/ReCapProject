@@ -49,10 +49,21 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+
+            if (result.Success)
             {
-                Console.WriteLine($"Currenlty avaliable car is {car.CarName} {car.BrandName} and the car is {car.ColorName} color. The dailyprice is {car.DailyPrice} Turkish Lira");
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine($"Currenlty avaliable car is {car.CarName} {car.BrandName} and the car is {car.ColorName} color. The dailyprice is {car.DailyPrice} Turkish Lira");
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+            
         }
     }
 }
