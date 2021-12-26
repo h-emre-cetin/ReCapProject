@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,19 +18,18 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
-        public IResult Add()
-        {
-            _customerDal.Add(customer);
 
-            return new SuccessResult();
+        public IResult Add(Customer customer)
+        {
+                throw new NotImplementedException();
         }
 
-        public IResult Delete()
+        public IResult Delete(Customer customer)
         {
             throw new NotImplementedException();
         }
 
-        public IResult Update()
+        public IResult Update(Customer customer)
         {
             throw new NotImplementedException();
         }
