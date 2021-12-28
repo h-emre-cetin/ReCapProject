@@ -10,8 +10,8 @@ namespace Business.Abstract
     public  interface IResultService
     {
 
-        IResult Add(); 
-        IResult Delete(); 
-        IResult Update();
+        IResult Add(Result result); 
+        IResult Delete(Result result); 
+        IResult Update(Result result);
     }
 }

@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +13,52 @@ namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
-        public IResult Add()
+        IRentalDal _rentalDal;
+
+        public RentalManager(IRentalDal rentalDal)
         {
-            throw new NotImplementedException();
+            _rentalDal = rentalDal;
         }
 
-        public IResult Delete()
+
+        public IResult Add(Rental rental)
         {
-            throw new NotImplementedException();
+            if (DateTime.Now.Hour==13)
+            {
+                return new ErrorResult(Messages.MaintenanceTime);
+            }
+            
+            _rentalDal.Add(rental);
+
+
+            return new SuccessResult(Messages.RentalAdded);
         }
 
-        public IResult Update()
+        public IResult Delete(Rental rental)
         {
-            throw new NotImplementedException();
+            _rentalDal.Delete(rental);
+            return new SuccessResult(Messages.RentalDeleted);
+        }
+
+        public IDataResult<List<Rental>> GetAll()
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalListed);   
+        }
+
+        public IDataResult<List<Rental>> GetByCarId(int id)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CarId == id));
+        }
+
+        public IDataResult<List<Rental>> GetByCustomerId(int id)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CustomerId == id));
+        }
+
+        public IResult Update(Rental rental)
+        {
+            _rentalDal.Update(rental);
+            return new SuccessResult(Messages.RentalUpdated);
         }
     }
 }

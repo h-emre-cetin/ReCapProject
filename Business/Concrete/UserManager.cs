@@ -28,6 +28,16 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+        public IDataResult<List<User>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<User>> GetByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
         public IResult Update(User user)
         {
             throw new NotImplementedException();
