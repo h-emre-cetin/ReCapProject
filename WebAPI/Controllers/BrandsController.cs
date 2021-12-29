@@ -6,55 +6,48 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class BrandsController : ControllerBase
     {
-        ICarService _carService;
+        IBrandService _brandService;
 
-        public CarsController(ICarService carService)
+        public BrandsController(IBrandService brandService)
         {
-            _carService = carService;
+            _brandService = brandService;
         }
 
-
         [HttpGet("getall")]
-
         public IActionResult GetAll()
         {
-            var result = _carService.GetAll();
+            var result = _brandService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
-           
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetByBrandId(int id)
+        [HttpGet("getbyname")]
+        public IActionResult GetAllByBrandName(string name)
         {
-            var result = _carService.GetAllByBrandId(id); 
+            var result = _brandService.GetAllByBrandName(name);
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest();
-
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
-
-        public IActionResult Add(Car car)
+        public IActionResult Add(Brand brand)
         {
-            var result = _carService.Add(car);
+            var result = _brandService.Add(brand);
             if (result.Success)
+
             {
                 return Ok(result);
             }
 
             return BadRequest(result);
-
-
         }
 
     }

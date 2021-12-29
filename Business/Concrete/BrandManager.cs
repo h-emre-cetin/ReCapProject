@@ -43,8 +43,8 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<Brand>>(Messages.MaintenanceTime);
             }
-            _brandDal.GetAll();
-            return new SuccessDataResult<List<Brand>>(Messages.BrandListed);
+           
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.BrandListed);
         }
 
         public IDataResult<List<Brand>> GetAllByBrandName(string name)

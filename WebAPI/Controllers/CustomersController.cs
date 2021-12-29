@@ -1,61 +1,60 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        ICarService _carService;
+        ICustomerService _customerService;
 
-        public CarsController(ICarService carService)
+        public CustomersController(ICustomerService customerService)
         {
-            _carService = carService;
+            _customerService = customerService;
         }
 
-
         [HttpGet("getall")]
-
         public IActionResult GetAll()
         {
-            var result = _carService.GetAll();
+            var result = _customerService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
-           
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetByBrandId(int id)
+        [HttpGet("getbyuserid")]
+
+        public IActionResult GetByUserId(int id)
         {
-            var result = _carService.GetAllByBrandId(id); 
+            var result = _customerService.GetAllByUserId(id);
             if (result.Success)
+
             {
                 return Ok(result);
             }
-            return BadRequest();
-
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
-
-        public IActionResult Add(Car car)
+        public IActionResult Add(Customer customer)
         {
-            var result = _carService.Add(car);
+            var result = _customerService.Add(customer);
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result);
-
-
         }
+
 
     }
 }

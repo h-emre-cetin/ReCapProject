@@ -1,60 +1,60 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class RentalsController : ControllerBase
     {
-        ICarService _carService;
+        IRentalService _rentalService;
 
-        public CarsController(ICarService carService)
+        public RentalsController(IRentalService rentalService)
         {
-            _carService = carService;
+            _rentalService = rentalService;
         }
 
-
         [HttpGet("getall")]
-
         public IActionResult GetAll()
         {
-            var result = _carService.GetAll();
+            var result = _rentalService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbycarid")]
+
+        public IActionResult GetByCarId(int id)
+        {
+            var result = _rentalService.GetByCarId(id);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
-           
-        }
-
-        [HttpGet("getbyid")]
-        public IActionResult GetByBrandId(int id)
-        {
-            var result = _carService.GetAllByBrandId(id); 
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest();
-
         }
 
         [HttpPost("add")]
 
-        public IActionResult Add(Car car)
+        public IActionResult Add(Rental rental)
         {
-            var result = _carService.Add(car);
+            var result = _rentalService.Add(rental);
             if (result.Success)
             {
                 return Ok(result);
             }
 
             return BadRequest(result);
-
-
         }
 
     }
