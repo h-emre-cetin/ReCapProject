@@ -59,9 +59,12 @@ namespace Business.Constants
         public static string UserUpdated = "User Updated!";
         public static string UserInvalid = "Invalid User!";
         public static string UserListed = "User Added!";
+        
+        //for the ImageUpload
 
-
-
-
+        public static string ImageUploaded="The Image Added!";
+        public static string ImageUploadFail = "Unable to Add Image!";
+        public static string ImageDeleted = "The Image Deleted!";
+        public static string ImageListed = "The Images Lİsted!";
     }
 }
