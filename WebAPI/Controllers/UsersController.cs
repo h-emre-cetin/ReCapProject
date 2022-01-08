@@ -9,38 +9,38 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
-    {
-        IUserService _userService;
+    //[Route("api/[controller]")]
+    //[ApiController]
+    //public class UsersController : ControllerBase
+    //{
+    //    IUserService _userService;
 
-        public UsersController(IUserService userService)
-        {
-            _userService = userService;
-        }
+    //    public UsersController(IUserService userService)
+    //    {
+    //        _userService = userService;
+    //    }
 
-        [HttpGet("getall")]
-        public IActionResult GetAll()
-        {
-            var result = _userService.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
+    //    [HttpGet("getall")]
+    //    public IActionResult GetAll()
+    //    {
+    //        var result = _userService.GetAll();
+    //        if (result.Success)
+    //        {
+    //            return Ok(result);
 
-            }
-            return BadRequest(result);
-        }
+    //        }
+    //        return BadRequest(result);
+    //    }
 
-        [HttpPost("add")]
-        public IActionResult Add(User user)
-        {
-            var result = _userService.Add(user);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-    }
+    //    [HttpPost("add")]
+    //    public IActionResult Add(UserE user)
+    //    {
+    //        var result = _userService.Add(user);
+    //        if (result.Success)
+    //        {
+    //            return Ok(result);
+    //        }
+    //        return BadRequest(result);
+    //    }
+    //}
 }

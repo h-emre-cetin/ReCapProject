@@ -66,5 +66,15 @@ namespace Business.Constants
         public static string ImageUploadFail = "Unable to Add Image!";
         public static string ImageDeleted = "The Image Deleted!";
         public static string ImageListed = "The Images Lİsted!";
+
+        //for the user register
+
+        public static string UserNotFound = "User not found";
+        public static string PasswordError = "Password incorrect";
+        public static string SuccessfulLogin = "Login Success";
+        public static string UserAlreadyExists = "User already exists!";
+        public static string UserRegistered = "User registered!";
+        public static string AccessTokenCreated = "Access token created";
+        public static string AuthorizationDenied = "No Permission!";
     }
 }
