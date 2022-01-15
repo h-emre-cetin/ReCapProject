@@ -13,6 +13,7 @@ namespace Business.Abstract
     {
         IDataResult<List<Car>> GetAll();
         IDataResult<List<Car>> GetAllByBrandId(int id);
+        IDataResult<Car> GetById(int car);
 
         IDataResult<List<Car>> GetAllByColorId(int id);
 
@@ -22,7 +23,7 @@ namespace Business.Abstract
         IResult Add(Car car);
         IResult Delete(Car car);
         IResult Update(Car car);
-      
+        IResult AddTransactionalTest(Car car);
 
     }
 
