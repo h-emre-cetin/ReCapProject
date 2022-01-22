@@ -50,6 +50,7 @@ namespace Business.Constants
         public static string RentalUpdated = "Rental Updated!";
         public static string RentalInvalid = "Rental is Invalid!";
         public static string RentalListed = "Rentals are listed!";
+        public static string RentDetails = "Rent Details Listed!";
 
 
         //for the UserManager
@@ -76,5 +77,6 @@ namespace Business.Constants
         public static string UserRegistered = "User registered!";
         public static string AccessTokenCreated = "Access token created";
         public static string AuthorizationDenied = "No Permission!";
+        
     }
 }
